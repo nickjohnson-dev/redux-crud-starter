@@ -8,8 +8,20 @@
     "webpack": "3.5.5"
   },
   "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-loader": "7.1.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
     "clean-webpack-plugin": "0.1.16",
     "css-loader": "0.28.5",
+    "eslint": "4.5.0",
+    "eslint-config-airbnb-base": "11.3.1",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-lodash-fp": "2.1.3",
+    "eslint-plugin-react": "7.3.0",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "html-webpack-plugin": "2.30.1",
@@ -18,8 +30,14 @@
     "webpack-merge": "4.1.0"
   },
   "scripts": {
-    "build": "webpack --config ./config/webpack-prod.config.js",
-    "start": "webpack-dev-server --config ./config/webpack-dev.config.js"
+    "build": "webpack --config ./configs/webpack-prod.config.js",
+    "lint": "eslint src",
+    "start": "webpack-dev-server --config ./configs/webpack-dev.config.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./configs/.eslintrc.js"
+    ]
   },
   "repository": {
     "type": "git",
