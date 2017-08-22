@@ -1,22 +1,15 @@
-import join from 'lodash/fp/join';
-import printMe from './printMe';
+import h from 'react-hyperscript';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import app from './features/app';
+import store from './store';
 import './styles/index.scss';
 
-function component() {
-  const el = document.createElement('div');
-  const btn = document.createElement('button');
+const { AppContainer } = app.components;
 
-  el.innerHTML = join(' ', ['Hello', 'Webpack']);
-
-  el.classList.add('hello');
-
-  btn.innerHTML = 'Click me and check the console!';
-
-  btn.onclick = printMe;
-
-  el.appendChild(btn);
-
-  return el;
-}
-
-document.body.appendChild(component());
+render(
+  h(Provider, {
+    store,
+  }, h(AppContainer)),
+  document.querySelector('#root'),
+);

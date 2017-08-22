@@ -78,6 +78,8 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       title: 'Redux CRUD Starter',
+      template: require('html-webpack-template'),
+      appMountId: 'root',
     }),
     new ExtractTextWebpackPlugin('[name][contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({
