@@ -10,14 +10,16 @@
   "devDependencies": {
     "clean-webpack-plugin": "0.1.16",
     "css-loader": "0.28.5",
+    "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "html-webpack-plugin": "2.30.1",
     "style-loader": "0.18.2",
-    "webpack-dev-server": "2.7.1"
+    "webpack-dev-server": "2.7.1",
+    "webpack-merge": "4.1.0"
   },
   "scripts": {
-    "build": "webpack --config webpack-dev.config.js",
-    "start": "webpack-dev-server --config webpack-dev.config.js --open"
+    "build": "webpack --config ./config/webpack-prod.config.js",
+    "start": "webpack-dev-server --config ./config/webpack-dev.config.js"
   },
   "repository": {
     "type": "git",
