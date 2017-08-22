@@ -1,5 +1,6 @@
 /* eslint-disable global-require */
 const path = require('path');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -84,6 +85,10 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime',
+    }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
     }),
   ],
 };
