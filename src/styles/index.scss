@@ -1,0 +1,13 @@
+$color: green;
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./roboto.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hello {
+  color: $color;
+  font-family: 'Roboto';
+}

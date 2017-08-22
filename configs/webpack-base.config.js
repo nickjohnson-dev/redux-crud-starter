@@ -42,10 +42,21 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
+        test: /\.scss/,
         use: ExtractTextWebpackPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader',
+          use: [
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                plugins: [
+                  require('autoprefixer')(),
+                ],
+              },
+            },
+            'sass-loader',
+          ],
         }),
       },
       {
@@ -67,7 +78,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Redux CRUD Starter',
     }),
-    new ExtractTextWebpackPlugin('styles.css'),
+    new ExtractTextWebpackPlugin('[name][contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
     }),

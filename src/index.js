@@ -1,6 +1,6 @@
 import join from 'lodash/fp/join';
 import printMe from './printMe';
-import './styles/index.css';
+import './styles/index.scss';
 
 function component() {
   const el = document.createElement('div');
