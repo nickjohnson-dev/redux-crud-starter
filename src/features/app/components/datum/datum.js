@@ -1,4 +1,5 @@
 import compose from 'lodash/fp/compose';
+import isBoolean from 'lodash/fp/isBoolean';
 import isObject from 'lodash/fp/isObject';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
@@ -34,11 +35,23 @@ export class Datum extends React.PureComponent {
   getFields = () =>
     compose(
       map(key => ({
-        value: isObject(this.props.datum[key]) ? h(Datum, {
-          datum: this.props.datum[key],
-        }) : this.props.datum[key],
+        value: getValue(this.props.datum[key]),
         key,
       })),
       keys,
     )(this.props.datum);
+}
+
+function getValue(datum) {
+  if (isObject(datum)) {
+    return h(Datum, {
+      datum,
+    });
+  }
+
+  if (isBoolean(datum)) {
+    return String(datum);
+  }
+
+  return datum;
 }

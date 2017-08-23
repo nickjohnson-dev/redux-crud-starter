@@ -21,15 +21,18 @@
   &__field {
     display: flex;
     flex: 0 0 auto;
-    flex-direction: column;
+    justify-content: space-between;
     padding-bottom: 8px;
     padding-top: 8px;
   }
   &__field__key {
-    color: #999;
+    color: slateblue;
+    flex: 1 1 20%;
     font-size: 0.875rem;
     margin-bottom: 4px;
+    padding-right: 32px;
   }
   &__field__value {
+    flex: 1 1 80%;
   }
 }
