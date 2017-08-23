@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     app: path.join(__dirname, '../src/index.js'),
     vendor: [
+      'babel-polyfill',
       'lodash',
     ],
   },
@@ -77,9 +78,11 @@ module.exports = {
       path.join(__dirname, '../dist'),
     ]),
     new HtmlWebpackPlugin({
+      appMountId: 'root',
+      baseHref: '/',
+      inject: false,
       title: 'Redux CRUD Starter',
       template: require('html-webpack-template'),
-      appMountId: 'root',
     }),
     new ExtractTextWebpackPlugin('[name][contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({

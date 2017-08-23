@@ -4,6 +4,8 @@
   "description": "A basic starter project for a CRUD app in React/Redux",
   "main": "src/index.js",
   "dependencies": {
+    "axios": "0.16.2",
+    "babel-polyfill": "6.26.0",
     "history": "4.6.3",
     "lodash": "4.17.4",
     "prop-types": "15.5.10",
@@ -13,6 +15,7 @@
     "react-redux": "5.0.6",
     "redux": "3.7.2",
     "redux-first-router": "1.9.18",
+    "redux-saga": "0.15.6",
     "webpack": "3.5.5"
   },
   "devDependencies": {
