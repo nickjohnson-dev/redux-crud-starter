@@ -4,7 +4,7 @@ import * as actions from './actions';
 const data = (state = [], action) => {
   switch (action.type) {
     case actions.DATA_REQUEST_SUCCEEDED:
-      return action.payload.slice(0, 50);
+      return action.payload.slice(0, 20);
     default:
       return state;
   }
