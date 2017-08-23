@@ -5,11 +5,11 @@ import app from './features/app';
 import store from './store';
 import './styles/index.scss';
 
-const { AppContainer } = app.components;
+const { App } = app.components;
 
 render(
   h(Provider, {
     store,
-  }, h(AppContainer)),
+  }, h(App)),
   document.querySelector('#root'),
 );

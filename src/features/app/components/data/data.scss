@@ -1,0 +1,16 @@
+.data {
+  align-items: center;
+  background-color: darkslateblue;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 32px;
+  &__datum {
+    max-width: 600px;
+    width: 100%;
+    & + .data__datum {
+      margin-top: 16px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import data from '../../../data';
-import { App } from './app';
+import { Data } from './data';
 
-export const AppContainer = connect(state => ({
+export const DataContainer = connect(state => ({
   data: data.selectors.getData(state),
-}))(App);
+}))(Data);
