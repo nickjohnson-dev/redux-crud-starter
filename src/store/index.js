@@ -1,4 +1,5 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import location from '../features/location';
 import shared from '../features/shared';
@@ -12,7 +13,11 @@ const middlewareEnhancer = applyMiddleware(
   sagaMiddleware,
 );
 
-const store = createStore(reducer, compose(
+const composeEnhancers = composeWithDevTools({
+  persist: true,
+});
+
+const store = createStore(reducer, composeEnhancers(
   location.router.enhancer,
   middlewareEnhancer,
 ));

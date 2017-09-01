@@ -48,16 +48,28 @@ module.exports = {
         use: ExtractTextWebpackPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader',
             {
-              loader: 'sass-loader',
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
+            {
+              loader: 'postcss-loader',
               options: {
                 plugins: [
                   require('autoprefixer')(),
                 ],
+                sourceMap: true,
               },
             },
-            'sass-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
           ],
         }),
       },
@@ -81,7 +93,7 @@ module.exports = {
       appMountId: 'root',
       baseHref: '/',
       inject: false,
-      title: 'Redux CRUD Starter',
+      title: 'UXT CMS',
       template: require('html-webpack-template'),
     }),
     new ExtractTextWebpackPlugin('[name][contenthash].css'),
