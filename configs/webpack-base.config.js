@@ -1,17 +1,30 @@
-/* eslint-disable global-require */
-const path = require('path');
+const autoprefixer = require('autoprefixer');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmlWebpackTemplate = require('html-webpack-template');
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   entry: {
     app: path.join(__dirname, '../src/index.js'),
     vendor: [
+      'axios',
       'babel-polyfill',
+      'classnames',
       'lodash',
+      'history',
+      'prop-types',
+      'react',
+      'redux-devtools-extension',
+      'react-dom',
+      'react-hyperscript',
+      'react-redux',
+      'redux',
+      'redux-first-router',
+      'redux-saga',
     ],
   },
   module: {
@@ -34,11 +47,11 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             plugins: [
-              require('babel-plugin-transform-class-properties'),
+              'transform-class-properties',
             ],
             presets: [
-              require('babel-preset-es2015'),
-              require('babel-preset-stage-2'),
+              'es2015',
+              'stage-2',
             ],
           },
         },
@@ -58,7 +71,7 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 plugins: [
-                  require('autoprefixer')(),
+                  autoprefixer(),
                 ],
                 sourceMap: true,
               },
@@ -93,8 +106,8 @@ module.exports = {
       appMountId: 'root',
       baseHref: '/',
       inject: false,
-      title: 'UXT CMS',
-      template: require('html-webpack-template'),
+      title: 'Redux CRUD Starter',
+      template: htmlWebpackTemplate,
     }),
     new ExtractTextWebpackPlugin('[name][contenthash].css'),
     new webpack.optimize.CommonsChunkPlugin({
