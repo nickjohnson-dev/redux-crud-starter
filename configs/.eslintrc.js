@@ -20,6 +20,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'function-paren-newline': 0,
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
     'linebreak-style': 0,
